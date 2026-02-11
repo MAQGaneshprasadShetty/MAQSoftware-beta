@@ -349,7 +349,7 @@ function RenderPowerBIVisuals(oVisualConfig) {
         .replace(/@id/g, oVisualConfig[index][this].id)
         // .replace(/@url/g, oVisualConfig[index][this].url)
         // .replace(/@url/g, "/resources/customVisuals/VisualDetail?id="+oVisualConfig[index][this].id)
-        .replace(/@url/g, "https://maqsoftware.com/Marketplace-Offers/Power-BI-custom-visuals/"+oVisualConfig[index][this].id)
+        .replace(/@url/g, (window.MAQConfig ? window.MAQConfig.baseURL : "https://maqsoftware.com") + "/Marketplace-Offers/Power-BI-custom-visuals/"+oVisualConfig[index][this].id)
         .replace(/@contacturl/g, oVisualConfig[index][this].contacturl)
         .replace(/@content/g, oVisualConfig[index][this].content)
         .replace(
@@ -367,7 +367,7 @@ function RenderPowerBIVisuals(oVisualConfig) {
         .replace(/@id/g, oVisualConfig[index][this].id)
         // .replace(/@url/g, oVisualConfig[index][this].url)
         // .replace(/@url/g, "/resources/customVisuals/VisualDetail?id="+oVisualConfig[index][this].id)
-        .replace(/@url/g, "https://maqsoftware.com/Marketplace-Offers/Power-BI-custom-visuals/"+oVisualConfig[index][this].id)
+        .replace(/@url/g, (window.MAQConfig ? window.MAQConfig.baseURL : "https://maqsoftware.com") + "/Marketplace-Offers/Power-BI-custom-visuals/"+oVisualConfig[index][this].id)
         .replace(/@category/g, oVisualConfig[index][this].category)
         .replace(/@isCertified/g, oVisualConfig[index][this].isCertified?"":"certified-hide")
         .replace(/@mentionStyle/g, oVisualConfig[index][this].mentionStyle)
