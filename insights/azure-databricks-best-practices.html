@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0" name="viewport">
+
+    <!-- Page-Specific SEO Tags -->
+    <title>Azure Databricks Best Practices | MAQ Software Insights</title>
+    <meta name="description" content="Boost Azure Databricks performance with our ADB Optimization Best Practice Guide. Learn how to improve query speed, manage clusters, enable autoscaling, and optimize Delta tables for faster, more efficient workloads.">
+    <meta name="keywords" content="Azure Databricks optimization, ADB best practices, Databricks performance tuning, Delta tables, Spark optimization, cluster autoscaling, adaptive query execution, Azure Data Factory, data engineering, ADB Premium, Unity Catalog, Photon Engine, Serverless SQL, Liquid Clustering, FinOps, MAQ Software">
+    <meta name="page-type" content="insight">
+    <meta name="page-topic" content="Azure Databricks Best Practices | MAQ Software Insights">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Azure Databricks Best Practices | MAQ Software Insights">
+    <meta property="og:description" content="Boost Azure Databricks performance with our ADB Optimization Best Practice Guide. Learn how to improve query speed, manage clusters, enable autoscaling, and optimize Delta tables for faster, more efficient workloads.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://maqsoftware.com/insights/azure-databricks-best-practices.html">
+    <meta property="og:site_name" content="MAQ Software">
+    <meta property="og:image" content="/images/expertise/cloud-main.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Azure Databricks Best Practices | MAQ Software Insights">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Azure Databricks Best Practices Guide",
+      "description": "Boost Azure Databricks performance with our ADB Optimization Best Practice Guide. Learn how to improve query speed, manage clusters, enable autoscaling, and optimize Delta tables.",
+      "image": "https://maqsoftware.com/images/expertise/cloud-main.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "MAQ Software",
+        "url": "https://maqsoftware.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MAQ Software",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://maqsoftware.com/images/logos/MAQ-Software-URL.png"
+        }
+      },
+      "dateModified": "2025-12-10",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://maqsoftware.com/insights/azure-databricks-best-practices.html"
+      }
+    }
+    </script>
+
+    <!-- Twitter Theme -->
+    <meta name="twitter:widgets:theme" content="light">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logos/MAQ-Software-URL.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700%7CHind+Madurai:400,500&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/core.min.css" />
+    <link rel="stylesheet" href="/css/skin.css" />
+    <link rel="stylesheet" href="/css/styles.css"/>
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0W302CGQG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-S0W302CGQG');
+    </script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "oekduyvjws");
+    </script>
+</head>
+
+<body class="shop blog">
+
+    <!-- Header -->
+    <header id="header" class="header header-absolute header-fixed-on-mobile header-transparent" data-bkg-threshold="100" data-sticky-threshold="0"></header>
+    <!-- Header End -->
+    <div class="section-block bkg-grey-ultralight"></div>
+    <!-- Content -->
+    <div class="content clearfix best-practices-text">
+        <div class="section-block clearfix pt-0 pb-0 bkg-grey-ultralight">
+            <div class="row">
+                <!-- Content Inner -->
+                <div class="column width-10 offset-1 content-inner blog-single-post bkg-grey-ultralight">
+                    <article class="post">
+                        <div class="post-content with-background">
+                            <h1 class="post-title center">ADB Optimization Best Practice Guide</h1>
+
+                            <p class="text-large">Azure Databricks (ADB) has the power to process terabytes of data, while simultaneously running heavy data science workloads. Over time, as data input and workloads increase, job performance decreases. As an ADB developer, optimizing your platform enables you to work faster and save hours of effort for you and your team. Below are the best practices you need to optimize your ADB environment.</p>
+                            
+                            <div id="cost-optimization">
+                                <h2>Cost Optimization</h2>
+                                <ol>
+                                    <li class="text-xlarge"><strong>Use Serverless Compute</strong></li>
+                                    <p class="text-large">Adopt <strong>Serverless SQL Warehouses</strong> for interactive SQL workloads to eliminate infrastructure management overhead and optimize costs through consumption-based billing. Serverless compute starts instantly and scales automatically.</p>
+
+                                    <li class="text-xlarge"><strong>Leverage Cluster Policies</strong></li>
+                                    <p class="text-large">Implement compute policies to enforce cost-effective configurations across all workspaces. Restrict instance types, enforce auto-termination settings, and ensure tagging compliance to prevent cost overruns.</p>
+
+                                    <li class="text-xlarge"><strong>Customize Cluster Termination</strong></li>
+                                    <p class="text-large">Terminating inactive clusters saves costs. Customize the auto-termination time based on the environment (e.g., shorter for production jobs, longer for development) to avoid paying for idle resources.</p>
+
+                                    <li class="text-xlarge"><strong>Enable Cluster Autoscaling</strong></li>
+                                    <p class="text-large">Enable autoscaling to allow clusters to resize based on workload. Provide a minimum and maximum number of worker nodes so ADB can automatically reallocate resources as needed.</p>
+
+                                    <li class="text-xlarge"><strong>Use Spot Instances</strong></li>
+                                    <p class="text-large">For interruptible workloads like development or testing, use Azure Spot VMs to save up to 90% on compute costs.</p>
+                                </ol>
+                            </div>
+
+                            <div id="performance">
+                                <h2>Performance Tuning</h2>
+                                <ol start="6">
+                                    <li class="text-xlarge"><strong>Enable Photon Engine</strong></li>
+                                    <p class="text-large">Use the <strong>Photon</strong> engine, a native vectorized query engine, to accelerate SQL queries and DataFrame API calls. It provides significant performance improvements for data ingestion, ETL, and interactive queries.</p>
+
+                                    <li class="text-xlarge"><strong>Optimize Delta Tables</strong></li>
+                                    <p class="text-large">Regularly run <code class="color-red bkg-grey-ultralight">OPTIMIZE</code> and <code class="color-red bkg-grey-ultralight">VACUUM</code> commands. <code class="color-red bkg-grey-ultralight">OPTIMIZE</code> compacts small files into larger ones to improve read performance, while <code class="color-red bkg-grey-ultralight">VACUUM</code> removes old files to save storage costs.</p>
+
+                                    <li class="text-xlarge"><strong>Use Liquid Clustering</strong></li>
+                                    <p class="text-large">Replace traditional partitioning and Z-Ordering with <strong>Liquid Clustering</strong>. It automatically adjusts data layout based on query patterns, solving the "small files" problem and improving query performance without manual tuning.</p>
+
+                                    <li class="text-xlarge"><strong>Adaptive Query Execution (AQE)</strong></li>
+                                    <p class="text-large">Ensure Adaptive Query Execution (AQE) is enabled (default in newer runtimes). AQE optimizes query plans at runtime based on actual data statistics, handling data skew and join strategies dynamically.</p>
+
+                                    <li class="text-xlarge"><strong>Cache Frequently Accessed Data</strong></li>
+                                    <p class="text-large">Use the Delta Cache (Disk Cache) to accelerate data reads by creating copies of remote files in the local storage (NVMe SSDs) of the worker nodes.</p>
+                                </ol>
+                            </div>
+
+                            <div id="governance-security">
+                                <h2>Governance & Security</h2>
+                                <ol start="11">
+                                    <li class="text-xlarge"><strong>Implement Unity Catalog</strong></li>
+                                    <p class="text-large">Use <strong>Unity Catalog</strong> for centralized access control, auditing, and data discovery across all Databricks workspaces. It provides a unified governance model for files, tables, and ML models.</p>
+
+                                    <li class="text-xlarge"><strong>Secure Secrets Management</strong></li>
+                                    <p class="text-large">Never hardcode credentials. Use <strong>Azure Key Vault</strong> backed secret scopes to securely manage and access secrets, keys, and tokens within notebooks and jobs.</p>
+
+                                    <li class="text-xlarge"><strong>Network Security</strong></li>
+                                    <p class="text-large">Deploy Databricks in your own Virtual Network (VNet Injection) to enable secure connectivity to other Azure services using Service Endpoints or Private Links.</p>
+                                </ol>
+                            </div>
+
+                            <div id="operational-excellence">
+                                <h2>Operational Excellence</h2>
+                                <ol start="14">
+                                    <li class="text-xlarge"><strong>Orchestrate with Azure Data Factory</strong></li>
+                                    <p class="text-large">Use Azure Data Factory (ADF) or Azure Synapse Pipelines to orchestrate complex workflows. This allows for better dependency management, retries, and monitoring across different Azure services.</p>
+
+                                    <li class="text-xlarge"><strong>CI/CD & Version Control</strong></li>
+                                    <p class="text-large">Integrate with Git (Azure DevOps or GitHub) for version control. Use <strong>Databricks Asset Bundles (DABs)</strong> or Terraform for Infrastructure as Code (IaC) to automate deployments across environments.</p>
+
+                                    <li class="text-xlarge"><strong>Clean Up Temporary Data</strong></li>
+                                    <p class="text-large">Use <code class="color-red bkg-grey-ultralight">dbutils.fs.rm()</code> to remove temporary files and drop intermediate tables after execution to maintain a clean environment and reduce storage costs.</p>
+                                </ol>
+                            </div>
+
+                            <h2>References</h2>
+                            <ul class="defaultBody">
+                                <li class="text-large"><a href="https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/cost-optimization/best-practices" target="_blank" rel="noopener noreferrer">Best practices for cost optimization</a> – Microsoft Corporation</li>
+                                <li class="text-large"><a href="https://learn.microsoft.com/en-us/azure/databricks/compute/photon" target="_blank" rel="noopener noreferrer">Photon Acceleration</a> – Microsoft Corporation</li>
+                                <li class="text-large"><a href="https://learn.microsoft.com/en-us/azure/databricks/delta/clustering" target="_blank" rel="noopener noreferrer">Liquid Clustering for Delta Tables</a> – Microsoft Corporation</li>
+                                <li class="text-large"><a href="https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/" target="_blank" rel="noopener noreferrer">Unity Catalog Governance</a> – Microsoft Corporation</li>
+                                <li class="text-large"><a href="https://learn.microsoft.com/en-us/azure/databricks/optimizations/aqe" target="_blank" rel="noopener noreferrer">Adaptive Query Execution</a> – Microsoft Corporation</li>
+                            </ul>
+                            <div class="row">
+                                <div class="column width-6">
+                                    <img src="/images/best-practices/BPG004-main.jpg" alt="">
+                                </div>
+                                <div class="column width-5 offset-1">
+                                    <p class="title-medium">Up Next</p><br><p class="title-small">Azure Optimization Best Practices</p><br><a href="/insights/azure-architecture-best-practices.html">Learn More &rarr;</a><br>
+                                </div>
+                            </div>
+                            <div class="section-block pt-10 pb-10 bkg-white"></div>
+                            <div class="post-info center">
+                                <span class="post-date">Last updated: December 10, 2025</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="section-block bkg-grey-ultralight"></div>
+    </div>
+    <!-- Content End -->
+    <!-- Footer -->
+    <footer id="footer" class="footer footer-light bkg-grey-ultralight"></footer>
+    <!-- Footer End -->
+    <!-- Js -->
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/timber.master.min.js"></script>
+    <script src="../js/sidenav.js"></script>
+    <script>
+// $("#header").load("/header");
+// $("#footer").load("/footer");
+// $("#header").load("/header.html");
+$("#footer").load("/footer.html");
+    </script>
+</body>
+</html>
